@@ -1,0 +1,431 @@
+<!doctype html><html><head><meta charset=utf-8><title>Jignyasa Tandel · Android Team Lead</title><meta name="description" content="Portfolio of Jignyasa Tandel, Android Team Lead with 8+ years in Java and Kotlin."><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: dark single-page portfolio. Sticky monogram nav, hero with stats and two actions, summary, vertical timeline, project card grid, skill groups, education, contact cards. Deliberately dark-only. */
+:root {
+  --bg: #0C0D0F;
+  --bg-2: #121418;
+  --card: #16191E;
+  --line: #24282F;
+  --ink: #ECEEF1;
+  --muted: #8C939E;
+  --accent: #7FD6AE;
+  --accent-ink: #0C0D0F;
+  --accent-dim: rgba(127, 214, 174, .12);
+  --font-display: "Sora", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Manrope", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.65;
+  margin: 0; -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 1100px; margin: 0 auto; padding-inline: 24px; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+/* Nav */
+.nav {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+  background: rgba(12, 13, 15, .82); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
+.logo {
+  font-family: var(--font-display); font-weight: 800; font-size: 15px; text-decoration: none;
+  width: 40px; height: 40px; display: grid; place-items: center;
+  border: 1px solid var(--line); border-radius: 10px; color: var(--accent);
+}
+.nav ul { list-style: none; display: flex; gap: 28px; margin: 0; padding: 0; flex-wrap: wrap; }
+.nav ul a { text-decoration: none; color: var(--muted); font-size: 14px; font-weight: 500; transition: color .2s; }
+.nav ul a:hover { color: var(--ink); }
+
+/* Hero */
+.hero { padding-block: 96px 80px; position: relative; }
+.hero::before {
+  content: ""; position: absolute; inset: 0 -20vw auto auto; width: 520px; height: 520px; max-width: 100%;
+  background: radial-gradient(circle at center, rgba(127, 214, 174, .10), transparent 65%);
+  pointer-events: none;
+}
+.pill {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--font-mono); font-size: 12.5px; color: var(--accent);
+  border: 1px solid var(--line); background: var(--bg-2); border-radius: 999px; padding: 6px 14px;
+  margin-bottom: 28px;
+}
+.pill::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--accent-dim); }
+h1 {
+  font-family: var(--font-display); font-weight: 800; font-size: clamp(42px, 7vw, 80px);
+  line-height: 1.02; letter-spacing: -.035em; margin: 0 0 18px; text-wrap: balance;
+}
+.role-line { font-family: var(--font-display); font-size: clamp(18px, 2.4vw, 24px); font-weight: 600; color: var(--muted); margin: 0 0 22px; }
+.role-line span { color: var(--accent); }
+.lede { max-width: 40em; font-size: 18px; color: #B9BFC8; margin: 0 0 36px; }
+.stats { display: flex; flex-wrap: wrap; gap: 0; margin: 0 0 40px; padding: 0; list-style: none; }
+.stats li { padding-right: 36px; margin-right: 36px; border-right: 1px solid var(--line); }
+.stats li:last-child { border-right: 0; margin-right: 0; padding-right: 0; }
+.stats b { display: block; font-family: var(--font-display); font-size: 40px; font-weight: 700; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.stats b em { font-style: normal; color: var(--accent); }
+.stats small { color: var(--muted); font-size: 14px; }
+.ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 600; font-size: 15px;
+  padding: 13px 22px; border-radius: 10px; border: 1px solid var(--line); transition: transform .2s, background .2s, border-color .2s;
+}
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn.ghost { color: var(--ink); background: var(--bg-2); }
+.btn:hover { transform: translateY(-2px); }
+.btn.ghost:hover { border-color: var(--muted); }
+
+/* Sections */
+section { padding-block: 88px; border-top: 1px solid var(--line); scroll-margin-top: 70px; }
+.label { font-family: var(--font-mono); font-size: 12.5px; color: var(--accent); letter-spacing: .08em; text-transform: uppercase; margin: 0 0 12px; }
+h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(30px, 4.2vw, 44px); letter-spacing: -.025em; line-height: 1.1; margin: 0 0 44px; text-wrap: balance; }
+
+/* Summary */
+.summary { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; }
+.summary h2 { margin-bottom: 0; }
+.summary p { margin: 0 0 18px; color: #B9BFC8; font-size: 17px; }
+.summary p:last-child { margin-bottom: 0; }
+
+/* Timeline */
+.timeline { position: relative; display: grid; gap: 20px; padding-left: 32px; }
+.timeline::before { content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 1px; background: var(--line); }
+.job { position: relative; background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 28px 30px; }
+.job::before {
+  content: ""; position: absolute; left: -31px; top: 34px; width: 13px; height: 13px; border-radius: 50%;
+  background: var(--bg); border: 2px solid var(--muted);
+}
+.job.current::before { border-color: var(--accent); background: var(--accent); box-shadow: 0 0 0 5px var(--accent-dim); }
+.job-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px 24px; flex-wrap: wrap; margin-bottom: 16px; }
+.job h3 { font-family: var(--font-display); font-size: 21px; font-weight: 700; margin: 0; letter-spacing: -.01em; }
+.job .co { color: var(--accent); font-weight: 600; font-size: 15px; margin: 2px 0 0; }
+.dates { font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); background: var(--bg-2); border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.job ul { margin: 0; padding-left: 1.1em; display: grid; gap: 8px; color: #B9BFC8; }
+.job li::marker { color: var(--accent); }
+
+/* Projects */
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.app {
+  background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 24px;
+  display: flex; flex-direction: column; gap: 12px; min-width: 0;
+  transition: border-color .25s, transform .25s;
+}
+.app:hover { border-color: rgba(127, 214, 174, .45); transform: translateY(-3px); }
+.app-top { display: flex; align-items: center; gap: 14px; }
+.app-icon {
+  width: 46px; height: 46px; border-radius: 12px; flex: none; display: grid; place-items: center;
+  font-family: var(--font-display); font-weight: 800; font-size: 17px; color: var(--accent-ink);
+  background: var(--accent);
+}
+.app-icon.alt { background: #C9B6F2; }
+.app-icon.alt2 { background: #F2C98B; }
+.app h3 { font-family: var(--font-display); font-size: 18px; font-weight: 700; margin: 0; letter-spacing: -.01em; }
+.app .by { font-size: 13px; color: var(--muted); margin: 0; }
+.app p.desc { margin: 0; color: #B9BFC8; font-size: 15px; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 6px; }
+.tag { font-family: var(--font-mono); font-size: 11.5px; color: var(--muted); background: var(--bg-2); border: 1px solid var(--line); border-radius: 6px; padding: 3px 9px; }
+
+/* Skills */
+.skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.skill-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 24px; min-width: 0; }
+.skill-card h3 { font-family: var(--font-display); font-size: 16px; font-weight: 700; margin: 0 0 16px; }
+.skill-card .tags { padding-top: 0; }
+.skill-card .tag { color: var(--ink); font-size: 12.5px; padding: 5px 11px; }
+
+/* Education */
+.edu { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.edu-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 26px; display: grid; gap: 6px; }
+.edu-card .yr { font-family: var(--font-mono); font-size: 12.5px; color: var(--accent); }
+.edu-card h3 { font-family: var(--font-display); font-size: 19px; margin: 0; font-weight: 700; }
+.edu-card p { margin: 0; color: var(--muted); }
+.extras { display: flex; flex-wrap: wrap; gap: 12px 40px; margin-top: 28px; color: #B9BFC8; }
+.extras b { color: var(--muted); font-weight: 500; margin-right: 8px; font-family: var(--font-mono); font-size: 12.5px; text-transform: uppercase; letter-spacing: .06em; }
+
+/* Contact */
+.contact-box {
+  background: linear-gradient(160deg, #15201B 0%, var(--card) 60%);
+  border: 1px solid var(--line); border-radius: 22px; padding: 52px;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center;
+}
+.contact-box h2 { margin-bottom: 14px; }
+.contact-box > div > p { color: #B9BFC8; margin: 0; max-width: 34em; }
+.methods { display: grid; gap: 12px; }
+.method {
+  display: flex; align-items: center; gap: 14px; background: var(--bg); border: 1px solid var(--line);
+  border-radius: 12px; padding: 14px 16px; min-width: 0;
+}
+.method .ic { width: 36px; height: 36px; flex: none; border-radius: 9px; background: var(--accent-dim); display: grid; place-items: center; color: var(--accent); }
+.method .ic svg { width: 18px; height: 18px; }
+.method .txt { min-width: 0; flex: 1; }
+.method small { display: block; color: var(--muted); font-size: 12px; }
+.method span.v { display: block; font-weight: 600; word-break: break-all; user-select: all; }
+.copy {
+  font: 500 12px var(--font-mono); color: var(--accent); background: transparent; border: 1px solid var(--line);
+  border-radius: 8px; padding: 6px 11px; cursor: pointer; flex: none;
+}
+.copy:hover { border-color: var(--accent); }
+
+footer { border-top: 1px solid var(--line); padding-block: 28px 40px; margin-top: 88px; }
+footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; color: var(--muted); font-size: 14px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero .wrap > * { animation: up .7s cubic-bezier(.2,.7,.2,1) both; }
+  .hero .wrap > *:nth-child(2) { animation-delay: .06s; }
+  .hero .wrap > *:nth-child(3) { animation-delay: .12s; }
+  .hero .wrap > *:nth-child(4) { animation-delay: .18s; }
+  .hero .wrap > *:nth-child(5) { animation-delay: .24s; }
+  .hero .wrap > *:nth-child(6) { animation-delay: .30s; }
+  @keyframes up { from { transform: translateY(14px); } to { transform: none; } }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn, .app { transition: none; } }
+
+@media (max-width: 900px) {
+  .grid, .skills { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .summary, .contact-box { grid-template-columns: 1fr; gap: 24px; }
+}
+@media (max-width: 640px) {
+  .wrap { padding-inline: 16px; }
+  .nav ul { display: none; }
+  .hero { padding-block: 56px 56px; }
+  .stats li { padding-right: 20px; margin-right: 20px; }
+  .stats b { font-size: 32px; }
+  section { padding-block: 64px; }
+  .grid, .skills, .edu { grid-template-columns: 1fr; }
+  .timeline { padding-left: 24px; }
+  .timeline::before { left: 5px; }
+  .job { padding: 22px 20px; }
+  .job::before { left: -25px; top: 28px; width: 11px; height: 11px; }
+  .contact-box { padding: 30px 20px; }
+}
+</style>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Back to top">JT</a>
+    <ul>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="pill">Vapi, Gujarat · India</span>
+    <h1>Jignyasa Tandel</h1>
+    <p class="role-line">Android Team Lead <span>·</span> Java <span>·</span> Kotlin</p>
+    <p class="lede">I build and lead Android apps end to end, from architecture and code review to Play Store release. 8+ years across GPS fleet tracking, BLE hardware, real-time MQTT chat, marketplaces and high-traffic utility apps.</p>
+    <ul class="stats">
+      <li><b>8<em>+</em></b><small>Years experience</small></li>
+      <li><b>8</b><small>Apps built</small></li>
+      <li><b>3</b><small>Companies</small></li>
+    </ul>
+    <div class="ctas">
+      <a class="btn primary" href="#projects">View projects</a>
+      <a class="btn ghost" href="#contact">Get in touch</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="summary">
+    <div class="wrap summary">
+      <div>
+        <p class="label">Professional summary</p>
+        <h2>Engineer first, team lead by practice.</h2>
+      </div>
+      <div>
+        <p>I started in 2017 at Uffizio, building fleet and field-staff products from scratch: live GPS tracking, geofence alerts, route playback and reporting. I also handled Play Store releases and production support.</p>
+        <p>At 3Embed I spent five years on marketplace and hardware apps in Java and Kotlin. I shipped MQTT chat, BLE device integration and in-app purchases, and refactored heavily to cut latency.</p>
+        <p>Most recently I led the Android team at Grow App Solutions. I owned the architecture of utility apps like PDF Reader, Calendar and QR Launcher, mentored developers, and brought AI tools into the team's daily workflow.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <p class="label">Work experience</p>
+      <h2>Where I've worked</h2>
+      <div class="timeline">
+        <article class="job current">
+          <div class="job-head">
+            <div><h3>Android Team Lead</h3><p class="co">Grow App Solutions · Surat</p></div>
+            <span class="dates">Aug 2025 – Jun 2026</span>
+          </div>
+          <ul>
+            <li>Led a team of Android developers, owning daily workload, delivery timelines and code quality.</li>
+            <li>Owned end-to-end architecture, development and optimization of core utility apps: PDF Reader, Calendar, QR Launcher and more.</li>
+            <li>Used AI tools (Cursor, Claude Code, ChatGPT) to speed up development, improve code quality and lift team productivity.</li>
+            <li>Made architectural decisions, resolved complex system-level issues and mentored developers.</li>
+          </ul>
+        </article>
+        <article class="job">
+          <div class="job-head">
+            <div><h3>Android Developer</h3><p class="co">3Embed Software Technologies · Bangalore</p></div>
+            <span class="dates">Aug 2020 – Jun 2025</span>
+          </div>
+          <ul>
+            <li>Built and maintained high-performance Android apps in Java and Kotlin.</li>
+            <li>Shipped complex features: real-time MQTT chat, BLE hardware connections and secure in-app purchases.</li>
+            <li>Refactored heavily to cut latency and make codebases faster and easier to maintain.</li>
+          </ul>
+        </article>
+        <article class="job">
+          <div class="job-head">
+            <div><h3>Android Developer</h3><p class="co">Uffizio India Software Consultants · Valsad</p></div>
+            <span class="dates">Nov 2017 – Jul 2020</span>
+          </div>
+          <ul>
+            <li>Designed and built core company products from scratch through to deployment.</li>
+            <li>Implemented real-time GPS vehicle tracking, custom geofence alerts and analytical reporting.</li>
+            <li>Managed Google Play Store releases and production support.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <p class="label">Projects</p>
+      <h2>Products &amp; projects</h2>
+      <div class="grid">
+        <article class="app">
+          <div class="app-top"><div class="app-icon">PR</div><div><h3>PDF Reader</h3><p class="by">Grow App Solutions</p></div></div>
+          <p class="desc">High-traffic utility app. Led architecture and performance work, and added AI-driven document summaries.</p>
+          <div class="tags"><span class="tag">Kotlin</span><span class="tag">AI summaries</span><span class="tag">Performance</span></div>
+        </article>
+        <article class="app">
+          <div class="app-top"><div class="app-icon">CA</div><div><h3>Calendar</h3><p class="by">Grow App Solutions</p></div></div>
+          <p class="desc">Calendar utility app. Owned feature maintenance, user flows and optimization as team lead.</p>
+          <div class="tags"><span class="tag">Kotlin</span><span class="tag">UX flows</span><span class="tag">Optimization</span></div>
+        </article>
+        <article class="app">
+          <div class="app-top"><div class="app-icon">QR</div><div><h3>QR Launcher</h3><p class="by">Grow App Solutions</p></div></div>
+          <p class="desc">QR utility app. Led development and modernization with new utility features.</p>
+          <div class="tags"><span class="tag">Kotlin</span><span class="tag">Utility</span><span class="tag">Architecture</span></div>
+        </article>
+        <article class="app">
+          <div class="app-top"><div class="app-icon alt">BL</div><div><h3>BLE Connection App</h3><p class="by">3Embed</p></div></div>
+          <p class="desc">Reads measurements from physical BLE devices, stores them in a secure local database and syncs reliably with the backend.</p>
+          <div class="tags"><span class="tag">BLE</span><span class="tag">Room</span><span class="tag">Sync</span></div>
+        </article>
+        <article class="app">
+          <div class="app-top"><div class="app-icon alt">LE</div><div><h3>Leoffer</h3><p class="by">3Embed</p></div></div>
+          <p class="desc">Buy, sell and exchange marketplace with order tracking, MQTT chat, an Instagram-style feed and live buyer/seller location for COD.</p>
+          <div class="tags"><span class="tag">MQTT</span><span class="tag">Maps</span><span class="tag">In-app purchase</span></div>
+        </article>
+        <article class="app">
+          <div class="app-top"><div class="app-icon alt">KW</div><div><h3>Kwibal</h3><p class="by">3Embed</p></div></div>
+          <p class="desc">Marketplace for admin listings and local Nextdoor products. Java and Kotlin on MVVM, with Cloudinary image transforms.</p>
+          <div class="tags"><span class="tag">MVVM</span><span class="tag">Retrofit</span><span class="tag">RxJava</span></div>
+        </article>
+        <article class="app">
+          <div class="app-top"><div class="app-icon alt2">TZ</div><div><h3>Trakzee</h3><p class="by">Uffizio</p></div></div>
+          <p class="desc">Fleet tracking for cars, bikes and buses: live tracking, route playback, geofence alerts, and AC, fuel and maintenance reports.</p>
+          <div class="tags"><span class="tag">Java</span><span class="tag">GPS</span><span class="tag">Geofencing</span></div>
+        </article>
+        <article class="app">
+          <div class="app-top"><div class="app-icon alt2">TE</div><div><h3>Taskeye</h3><p class="by">Uffizio</p></div></div>
+          <p class="desc">Field-staff monitoring and task management for remote projects, with built-in employee leave management.</p>
+          <div class="tags"><span class="tag">Java</span><span class="tag">Task tracking</span><span class="tag">Leave mgmt</span></div>
+        </article>
+        <article class="app">
+          <div class="app-top"><div class="app-icon">AI</div><div><h3>AI-assisted workflow</h3><p class="by">Grow App Solutions</p></div></div>
+          <p class="desc">Brought Cursor, Claude Code and ChatGPT into the team's daily development to ship faster with better code quality.</p>
+          <div class="tags"><span class="tag">Cursor</span><span class="tag">Claude Code</span><span class="tag">ChatGPT</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <p class="label">Skills</p>
+      <h2>What I work with</h2>
+      <div class="skills">
+        <div class="skill-card"><h3>Languages &amp; architecture</h3><div class="tags"><span class="tag">Java</span><span class="tag">Kotlin</span><span class="tag">MVVM</span><span class="tag">MVP</span><span class="tag">Dagger-Hilt</span></div></div>
+        <div class="skill-card"><h3>Async, network &amp; data</h3><div class="tags"><span class="tag">Coroutines</span><span class="tag">RxJava</span><span class="tag">Retrofit</span><span class="tag">REST API</span><span class="tag">Room</span><span class="tag">SQLite</span></div></div>
+        <div class="skill-card"><h3>Connectivity &amp; services</h3><div class="tags"><span class="tag">BLE</span><span class="tag">MQTT</span><span class="tag">Google Maps</span><span class="tag">FCM</span><span class="tag">Firebase Auth</span></div></div>
+        <div class="skill-card"><h3>Leadership</h3><div class="tags"><span class="tag">Team lead</span><span class="tag">Mentoring</span><span class="tag">Code review</span><span class="tag">Architecture decisions</span></div></div>
+        <div class="skill-card"><h3>AI &amp; dev tools</h3><div class="tags"><span class="tag">Cursor</span><span class="tag">Claude Code</span><span class="tag">ChatGPT</span><span class="tag">Android Studio</span><span class="tag">IntelliJ IDEA</span><span class="tag">Git/GitHub</span></div></div>
+        <div class="skill-card"><h3>Release &amp; platforms</h3><div class="tags"><span class="tag">Play Store deployment</span><span class="tag">Production support</span><span class="tag">Windows</span><span class="tag">Linux</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <p class="label">Education</p>
+      <h2>Education</h2>
+      <div class="edu">
+        <div class="edu-card"><span class="yr">Graduated April 2016</span><h3>Master of Computer Applications (MCA)</h3><p>Laxmi Institute of Computer Application, Sarigam</p></div>
+        <div class="edu-card"><span class="yr">Graduated April 2014</span><h3>B.Sc. Computer Science</h3><p>Dolat Usha Institute, Valsad</p></div>
+      </div>
+      <div class="extras">
+        <div><b>Languages</b>English, Gujarati, Hindi</div>
+        <div><b>Interests</b>New technologies, coding, movies</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-box">
+        <div>
+          <p class="label">Contact</p>
+          <h2>Let's work together</h2>
+          <p>Looking for an Android lead or senior developer? Send me an email or give me a call.</p>
+        </div>
+        <div class="methods">
+          <div class="method">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+            <div class="txt"><small>Email</small><span class="v" id="email">jignyasatandel8495@gmail.com</span></div>
+            <button class="copy" type="button" data-target="email">Copy</button>
+          </div>
+          <div class="method">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg></span>
+            <div class="txt"><small>Phone</small><span class="v" id="phone">+91 99795 59635</span></div>
+            <button class="copy" type="button" data-target="phone">Copy</button>
+          </div>
+          <div class="method">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div class="txt"><small>Location</small><span class="v">Vapi 396191, Gujarat, India</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 Jignyasa Tandel</span><span>Android Team Lead · Java · Kotlin</span></div>
+</footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var el = document.getElementById(btn.dataset.target);
+    function reset() { setTimeout(function () { btn.textContent = 'Copy'; }, 1600); }
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents(el);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = 'Selected'; reset();
+    }
+    try { navigator.clipboard.writeText(el.textContent).then(function () { btn.textContent = 'Copied'; reset(); }, fallback); }
+    catch (e) { fallback(); }
+  });
+});
+</script>
+
+</body></html>
